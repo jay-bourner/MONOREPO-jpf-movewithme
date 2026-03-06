@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Http\Requests\StoreVenueRequest;
-use App\Http\Requests\UpdateVenueRequest;
-use App\Models\Venue;
+use App\Http\Requests\StorePriceRequest;
+use App\Http\Requests\UpdatePriceRequest;
+use App\Models\Price;
 
-class VenueController extends Controller
+class PriceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return Price::all();
     }
 
     /**
@@ -27,7 +27,7 @@ class VenueController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreVenueRequest $request)
+    public function store(StorePriceRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class VenueController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Venue $venue)
+    public function show(Price $price)
     {
         //
     }
@@ -43,7 +43,7 @@ class VenueController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Venue $venue)
+    public function edit(Price $price)
     {
         //
     }
@@ -51,7 +51,7 @@ class VenueController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateVenueRequest $request, Venue $venue)
+    public function update(UpdatePriceRequest $request, Price $price)
     {
         //
     }
@@ -59,7 +59,7 @@ class VenueController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Venue $venue)
+    public function destroy(Price $price)
     {
         //
     }

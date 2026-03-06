@@ -13,13 +13,12 @@ return new class extends Migration
     {
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
-            $table->decimal('cost', 3, 2);
+            $table->float('cost');
             $table->enum('type', ['payg', 'term']);
             $table->integer('number_of_classes')->nullable();
             $table->string('weekly_period')->nullable();
             $table->text('notes')->nullable();
             $table->timestamps();
-            $table->unique(['type' => 'payg']);
             $table->softDeletes();
         });
     }

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Http\Requests\StorePriceRequest;
-use App\Http\Requests\UpdatePriceRequest;
-use App\Models\Price;
+use App\Http\Requests\StoreFitnessClassRequest;
+use App\Http\Requests\UpdateFitnessClassRequest;
+use App\Models\FitnessClass;
 
-class PriceController extends Controller
+class FitnessClassController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class PriceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePriceRequest $request)
+    public function store(StoreFitnessClassRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class PriceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Price $price)
+    public function show(FitnessClass $fitnessClass)
     {
         //
     }
@@ -43,7 +43,7 @@ class PriceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Price $price)
+    public function edit(FitnessClass $fitnessClass)
     {
         //
     }
@@ -51,7 +51,7 @@ class PriceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePriceRequest $request, Price $price)
+    public function update(UpdateFitnessClassRequest $request, FitnessClass $fitnessClass)
     {
         //
     }
@@ -59,7 +59,7 @@ class PriceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Price $price)
+    public function destroy(FitnessClass $fitnessClass)
     {
         //
     }
