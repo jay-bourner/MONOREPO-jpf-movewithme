@@ -1,9 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: [
-    '@nuxt/eslint',
-    '@nuxt/ui'
-  ],
+  modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxt/image'],
 
   devtools: {
     enabled: true
@@ -17,6 +14,27 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2025-01-15',
 
+  image: {
+    inject: true,
+    quality: 80,
+    format: ['webp'],
+    screens: {
+      'sm': 640,
+      'md': 768,
+      'lg': 1024,
+      'xl': 1280,
+      '2xl': 1536
+    },
+    // Enable ipx provider for proper image optimization
+    provider: 'ipx',
+    ipx: {
+      modifiers: {
+        format: 'avif,webp',
+        quality: 80
+      }
+    }
+  },
+
   eslint: {
     config: {
       stylistic: {
@@ -24,5 +42,11 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
-  }
+  },
+
+  runtimeConfig: {
+    public: {
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || 'http://localhost:8000',
+    },
+  },
 })
