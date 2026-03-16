@@ -70,6 +70,7 @@ const justSomeClasses = ref([
   'Lift Lean Seniors'
 ])
 
+
 const { data: prices } = await useFetch('/api/prices')
 
 const payAsYouGoPrice = computed(() => {
