@@ -1,5 +1,33 @@
 <script setup lang="ts">
+import * as z from "zod";
+import type { FormSubmitEvent } from '@nuxt/ui'
 
+const schema = z.object({
+    name: z.string('Name is required'),
+    email: z.email('Invalid email'),
+    tel: z.optional(z.string().min(10, 'Number too short').max(12, 'number too long')),
+    message: z.string('Message is required')
+})
+
+type Schema = z.output<typeof schema>
+
+const state = reactive<Partial<Schema>>({
+  name: undefined,
+  email: undefined,
+  tel: undefined,
+  message: undefined
+})
+
+const form = useTemplateRef('form')
+
+const toast = useToast()
+async function onSubmit(event: FormSubmitEvent<Schema>) {
+  toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
+  await useFetch('/api/contact', {
+    method: 'POST',
+    body: event.data
+  })
+}
 </script>
 
 <template>
@@ -36,61 +64,102 @@
   </div>
   <div class="w-[50%] my-8 py-[100px] mx-auto">
     <div class="rounded-md border bg-[var(--bg-lt-grey)] shadow-md px-5 pt-5 pb-10">
-      <UForm>
-        <UFormField label="Name">
-          <UInput
-            :ui="{
-              root: 'w-[100%]'
-            }"
-          />
-        </UFormField>
-        <UFormField
-          label="Email"
-          :ui="{
-            root: 'my-2'
-          }"
-        >
-          <UInput
-            :ui="{
-              root: 'w-[100%]'
-            }"
-          />
-        </UFormField>
-        <UFormField
-          label="Number"
-          :ui="{
-            root: 'my-2'
-          }"
-        >
-          <UInput
-            :ui="{
-              root: 'w-[100%]'
-            }"
-          />
-        </UFormField>
-        <UFormField
-          label="Message"
-          :ui="{
-            root: 'my-2'
-          }"
-        >
-          <UTextarea
-            :rows="20"
-            :ui="{
-              root: 'w-[100%]'
-            }"
-          />
+      <UForm ref="form" :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
+        <UFormField label="Name" name="name" required>
+          <UInput v-model="state.name" type="text" :ui="{root: 'w-[100%]'}" />
         </UFormField>
 
-        <UButton
-          label="Submit"
-          variant="solid"
-          class="float-right"
-          :ui="{
-            base: 'bg-[var(--theme-green)]'
-          }"
-        />
+        <UFormField label="Email" name="email">
+          <UInput v-model="state.email" :ui="{root: 'w-[100%]' }" />
+        </UFormField>
+
+        <UFormField label="Number" name="tel" :ui="{root: 'my-2'}">
+          <UInput v-model="state.tel" type="text" :ui="{root: 'w-[100%]'}" />
+        </UFormField>
+
+        <UFormField label="Message" name="message" required :ui="{root: 'my-2'}" >
+          <UTextarea v-model="state.message" :rows="20" :ui="{root: 'w-[100%]' }" />
+        </UFormField>
+
+        <UButton type="submit" variant="solid" class="float-right cursor-pointer" :ui="{base: 'bg-[var(&#45;&#45;theme-green)]'}">
+          Submit
+        </UButton>
       </UForm>
+
+          <!--      <UForm-->
+<!--        ref="form"-->
+<!--        :schema="schema"-->
+<!--        :state="state"-->
+<!--        @submit="onSubmit"-->
+<!--      >-->
+<!--        <UFormField-->
+<!--          label="Name"-->
+<!--          required-->
+<!--        >-->
+<!--          <UInput-->
+<!--            v-model="state.name"-->
+<!--            type="text"-->
+<!--            :ui="{-->
+<!--              root: 'w-[100%]'-->
+<!--            }"-->
+<!--          />-->
+<!--        </UFormField>-->
+<!--        <UFormField-->
+<!--          label="Email"-->
+<!--          required-->
+<!--          :ui="{-->
+<!--            root: 'my-2'-->
+<!--          }"-->
+<!--        >-->
+<!--          <UInput-->
+<!--            v-model="state.email"-->
+<!--            type="email"-->
+<!--            :ui="{-->
+<!--              root: 'w-[100%]'-->
+<!--            }"-->
+<!--          />-->
+<!--        </UFormField>-->
+<!--        <UFormField-->
+<!--          label="Number"-->
+<!--          :ui="{-->
+<!--            root: 'my-2'-->
+<!--          }"-->
+<!--        >-->
+<!--          <UInput-->
+<!--            v-model="state.tel"-->
+<!--            type="text"-->
+<!--            :ui="{-->
+<!--              root: 'w-[100%]'-->
+<!--            }"-->
+<!--          />-->
+<!--        </UFormField>-->
+<!--        <UFormField-->
+<!--          label="Message"-->
+<!--          required-->
+<!--          :ui="{-->
+<!--            root: 'my-2'-->
+<!--          }"-->
+<!--        >-->
+<!--          <UTextarea-->
+<!--            v-model="state.message"-->
+<!--            :rows="20"-->
+<!--            :ui="{-->
+<!--              root: 'w-[100%]'-->
+<!--            }"-->
+<!--          />-->
+<!--        </UFormField>-->
+
+<!--        <UButton-->
+<!--          label="Submit"-->
+<!--          type="submit"-->
+<!--          variant="solid"-->
+<!--          class="float-right cursor-pointer"-->
+<!--          @click="form?.submit()"-->
+<!--          :ui="{-->
+<!--            base: 'bg-[var(&#45;&#45;theme-green)]'-->
+<!--          }"-->
+<!--        />-->
+<!--      </UForm>-->
     </div>
   </div>
 </div>
