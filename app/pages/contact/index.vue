@@ -5,7 +5,7 @@ import type { FormSubmitEvent } from '@nuxt/ui'
 const schema = z.object({
     name: z.string('Name is required'),
     email: z.email('Invalid email'),
-    tel: z.optional(z.string().min(10, 'Number too short').max(12, 'number too long')),
+    number: z.optional(z.string().min(10, 'Number too short').max(12, 'number too long')),
     message: z.string('Message is required')
 })
 
@@ -14,11 +14,9 @@ type Schema = z.output<typeof schema>
 const state = reactive<Partial<Schema>>({
   name: undefined,
   email: undefined,
-  tel: undefined,
+  number: undefined,
   message: undefined
 })
-
-const form = useTemplateRef('form')
 
 const toast = useToast()
 async function onSubmit(event: FormSubmitEvent<Schema>) {
@@ -69,12 +67,12 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
           <UInput v-model="state.name" type="text" :ui="{root: 'w-[100%]'}" />
         </UFormField>
 
-        <UFormField label="Email" name="email">
+        <UFormField label="Email" name="email" required>
           <UInput v-model="state.email" :ui="{root: 'w-[100%]' }" />
         </UFormField>
 
-        <UFormField label="Number" name="tel" :ui="{root: 'my-2'}">
-          <UInput v-model="state.tel" type="text" :ui="{root: 'w-[100%]'}" />
+        <UFormField label="Number" name="number" :ui="{root: 'my-2'}">
+          <UInput v-model="state.number" type="text" :ui="{root: 'w-[100%]'}" />
         </UFormField>
 
         <UFormField label="Message" name="message" required :ui="{root: 'my-2'}" >
