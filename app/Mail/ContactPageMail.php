@@ -15,10 +15,6 @@ class ContactPageMail extends Mailable
     use Queueable, SerializesModels;
 
     protected array $data;
-    protected string $name;
-    protected string $email;
-    protected string $number;
-    protected string $message;
 
     /**
      * Create a new message instance.
@@ -26,10 +22,6 @@ class ContactPageMail extends Mailable
     public function __construct(array $data)
     {
         $this->data = $data;
-        $this->name = $data['name'];
-        $this->email = $data['email'];
-        $this->number = $data['number'];
-        $this->message = $data['message'];
     }
 
     /**
@@ -38,9 +30,9 @@ class ContactPageMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('jay.bourner@gmail.com', 'Jay Bourner'),
-            subject: 'You have received a message from jpf-movewithme.co.uk',
-
+            from: 'jaime@jpf-movewithme.co.uk',
+            to: 'jaime@jpf-movewithme.co.uk',
+            subject: 'You have received a message from ' . $this->data['name'],
         );
     }
 
@@ -50,8 +42,18 @@ class ContactPageMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.contact',
         );
+    }
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->view('emails.contact', ['data' => $this->data]);
     }
 
     /**
