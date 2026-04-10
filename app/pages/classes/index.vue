@@ -1,14 +1,14 @@
 <script setup lang="ts">
-const { data: classes } = await useFetch('/api/classes')
+const { data: classes } = useFetch('/api/classes')
 </script>
 
 <template>
   <div>
-    <div class="my-[50px] mx-auto w-[50%] p-[20px] text-center border border-[var(--theme-green)] rounded-md">
+    <div class="my-[50px] mx-auto w-[95%] lg:w-[50%] p-[20px] text-center border border-[var(--theme-green)] rounded-md">
       <h1 class="text-3xl font-bold text-center">Classes</h1>
       <p>There are a range of classes available to you, Check them out below.</p>
     </div>
-    <div class="flex flex-wrap gap-5 my-[50px] w-[80%] m-auto">
+    <div class="flex flex-wrap gap-5 my-[50px] w-[95%] lg:w-[80%] m-auto">
       <UCard
         v-for="(fitnessClass, index) of classes"
         :key="index"
@@ -26,7 +26,7 @@ const { data: classes } = await useFetch('/api/classes')
             <UButton label="In Person" color="neutral" />
           </UChip>
         </template>
-        <div class="flex gap-5">
+        <div class="flex flex-col lg:flex-row gap-5">
           <NuxtImg
             :src="fitnessClass.image"
             width="300"
@@ -35,21 +35,21 @@ const { data: classes } = await useFetch('/api/classes')
             :placeholder="true"
             loading="eager"
             quality="80"
-            class="w-[300px] h-[300px] rounded object-cover"
+            class="w-[300px] h-auto rounded object-cover"
           />
           <div>
             <h3 class="font-bold">{{ fitnessClass.short_description }}</h3>
             <div v-html="fitnessClass.description"></div>
           </div>
         </div>
-        <template #footer>
+        <!-- <template #footer>
           <UButton
             label="View Class"
           />
             <UButton
               label="Book a slot"
             />
-        </template>
+        </template> -->
       </UCard>
     </div>
   </div>

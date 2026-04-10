@@ -29,12 +29,12 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 </script>
 
 <template>
-<div class="p-[2em] max-w-[1600px] m-auto">
+<div class="p-5 lg:p-[2em] max-w-[1600px] m-auto">
   <div class="my-[50px] mx-auto">
     <h1 class="text-3xl font-bold text-center">Contact Me</h1>
   </div>
-  <div class="flex my-8 gap-10 p-5">
-    <div class="w-[100%] h-[400px] relative left-25 drop-shadow-lg">
+  <div class="flex flex-col lg:flex-row my-8 gap-10 justify-center">
+    <div class="w-full lg:h-[400px] relative lg:left-25 drop-shadow-lg">
       <NuxtImg
         src="/images/contact/Jaime-chilling.jpg"
         width="500"
@@ -43,10 +43,10 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         :placeholder="true"
         loading="eager"
         quality="80"
-        class="w-[100%] h-[100%] rounded-md object-cover"
+        class="rounded-md object-cover m-auto"
       />
     </div>
-    <div class="border rounded-md p-5  relative right-25 top-20 backdrop-blur-2xl">
+    <div class="border rounded-md p-5 relative lg:right-25 lg:top-20 backdrop-blur-2xl">
       <p>Have a question about training, classes, or which package would suit you best? Use the form below and I’ll get back to you as soon as possible.</p>
       <p>Whether your goal is fat loss, building strength, improving fitness, or simply feeling more confident day-to-day, I’m happy to chat through where you’re at and what you need—no pressure, just honest advice.</p>
       <p>Just send me a message with some info, like:</p>
@@ -56,11 +56,10 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         <li>- Any injuries, limitations, or preferences</li>
         <li>- The best days/times to contact you</li>
       </ul>
-      <p>and ill be happy to help</p>
       <p>You can also find additional contact details at the bottom of the page if you’d rather reach out another way.</p>
     </div>
   </div>
-  <div class="w-[50%] my-8 py-[100px] mx-auto">
+  <div class="lg:w-[50%] my-8 lg:py-[100px] mx-auto">
     <div class="rounded-md border bg-[var(--bg-lt-grey)] shadow-md px-5 pt-5 pb-10">
       <UForm ref="form" :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
         <UFormField label="Name" name="name" required>

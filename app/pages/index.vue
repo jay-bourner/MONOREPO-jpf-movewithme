@@ -79,188 +79,192 @@ const payAsYouGoPrice = computed(() => {
 </script>
 
 <template>
-  <div class="flex justify-center max-w-[1600px] m-auto">
-    <UCard
-      v-for="(elem, index) of missionElement"
-      :key="index"
-      class="w-300 m-[20px] rounded-md bg-[var(--theme-green)] shadow-md"
-      :ui="{
-        header: 'text-center border-0 border-b-2 border-gray-900 mx-5 font-bold',
-      }"
-    >
-      <template #header>
-        {{ elem.heading }}
-      </template>
-        {{ elem.text }}
-    </UCard>
-  </div>
+  <main>
+    <div class="flex-wrap justify-center max-w-[1600px] m-auto lg:flex lg:flex-nowrap">
+      <UCard
+        v-for="(elem, index) of missionElement"
+        :key="index"
+        class="rounded-md bg-[var(--theme-green)] shadow-md m-auto my-[20px] lg:m-[20px] w-[75%] sm:w-[50%] lg:w-300"
+        :ui="{
+          header: 'text-center border-0 border-b-2 border-gray-900 mx-5 font-bold',
+        }"
+      >
+        <template #header>
+          {{ elem.heading }}
+        </template>
+          {{ elem.text }}
+      </UCard>
+    </div>
 
-  <div class="py-[20px] mb-[20px] bg-[var(--bg-lt-grey)]">
-    <div class="max-w-[1000px] m-auto grid grid-cols-2 gap-5">
-      <div class="mx-[10px p-[20px] bg-[var(--theme-dk-green)] rounded-md shadow-lg">
-        <div class="w-[100%] relative max-h-[400px] overflow-hidden mb-4">
-          <NuxtImg
-            src="/images/instructor/jaime-about-me.jpg"
-            width="500"
-            height="500"
-            class=""
-          />
-          <svg class="absolute bottom-[-5px] left-0 w-[103%] fill-[var(--theme-dk-green)]" viewBox="0 0 3189 355" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
-              <g transform="matrix(2.03592,0.0366734,-0.0742454,4.12173,-460.181,-3104.7)">
-                  <path d="M267.03,829.976C422.362,815.476 749.537,769.178 997.731,780.288C1698.57,811.661 1817.06,710.168 1808.48,762.287C1808.44,762.552 1808.41,762.818 1808.41,763.084C1808.41,768.05 1808.41,817.158 1808.41,817.158L267.03,829.976Z" />
-              </g>
-          </svg>
+    <div class="py-[20px] mb-[20px] bg-[var(--bg-lt-grey)]">
+      <div class="max-w-[1000px] m-auto grid grid-cols-1 gap-5 lg:grid-cols-2">
+        <div class="p-[20px] bg-[var(--theme-dk-green)] rounded-md shadow-lg w-[75%] m-auto sm-[50%] lg:w-[100%]">
+          <div class="w-[100%] relative max-h-[400px] overflow-hidden mb-4">
+            <NuxtImg
+              src="/images/instructor/jaime-about-me.jpg"
+              width="500"
+              height="500"
+              class=""
+            />
+            <svg class="absolute bottom-[-5px] left-0 w-[103%] fill-[var(--theme-dk-green)]" viewBox="0 0 3189 355" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+                <g transform="matrix(2.03592,0.0366734,-0.0742454,4.12173,-460.181,-3104.7)">
+                    <path d="M267.03,829.976C422.362,815.476 749.537,769.178 997.731,780.288C1698.57,811.661 1817.06,710.168 1808.48,762.287C1808.44,762.552 1808.41,762.818 1808.41,763.084C1808.41,768.05 1808.41,817.158 1808.41,817.158L267.03,829.976Z" />
+                </g>
+            </svg>
+          </div>
+          <div class="text-2 my-2">
+            <h2 class="font-bold ">Welcome to Putting Your Fitness & Wellness First</h2>
+          </div>
+          <div class="flex flex-col gap-2">
+            <p>Hi, I'm Jaime, and as a lady in her 40s, mum to two young children, a wife and a business owner, I'm no stranger to putting everyone else first and myself last. However, as I approach my half-century (scary now I write it!) I realise the importance of focusing on my health and wellbeing. I make my lifestyle, fitness and wellness choices based on increasing longevity. I want to be able to move freely and stay strong and physically independent into my later years. And I now make it my mission to help you do the same.</p>
+            <p><b>My credentials</b><br> My passion for fitness and exercise began in my 20s when I became an entertainer and dancer. For the last ten years, I have been passionate about helping my local community as a fitness instructor, nutritional advisor, and women's health and wellbeing specialist.</p>
+            <p><b>My offering</b><br> You'll find a diverse range of community fitness classes in West and North Norfolk. Online, there are fitness and nutrition programs tailored for both men and women. Browse the timetable to find your perfect class.</p>
+          </div>
         </div>
-        <div class="text-2 my-2">
-          <h2 class="font-bold ">Welcome to Putting Your Fitness & Wellness First</h2>
-        </div>
-        <div class="flex flex-col gap-2">
-          <p>Hi, I'm Jaime, and as a lady in her 40s, mum to two young children, a wife and a business owner, I'm no stranger to putting everyone else first and myself last. However, as I approach my half-century (scary now I write it!) I realise the importance of focusing on my health and wellbeing. I make my lifestyle, fitness and wellness choices based on increasing longevity. I want to be able to move freely and stay strong and physically independent into my later years. And I now make it my mission to help you do the same.</p>
-          <p><b>My credentials</b><br> My passion for fitness and exercise began in my 20s when I became an entertainer and dancer. For the last ten years, I have been passionate about helping my local community as a fitness instructor, nutritional advisor, and women's health and wellbeing specialist.</p>
-          <p><b>My offering</b><br> You'll find a diverse range of community fitness classes in West and North Norfolk. Online, there are fitness and nutrition programs tailored for both men and women. Browse the timetable to find your perfect class.</p>
-        </div>
-      </div>
-<!--   About Jaime   -->
-      <div class="text-center py-5 font-size-2 leading-[2.5] bg-[var(--theme-grey)] rounded-md shadow-lg">
-        <h2 class="text-4xl font-bold">Classes Include</h2>
-        <div
-          v-for="(FitnessClass, index) of justSomeClasses"
-          :key="index"
-          class="flex flex-col items-center m-5"
-        >
-          <div class="text-3xl leading-[2.5rem]">{{ FitnessClass }}</div>
-          <svg class="w-[60%] fill-[var(--theme-divider)] mt-5" viewBox="0 0 576 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-            <g transform="matrix(1,0,0,1,-224.226,-368)">
+        <div class="text-center py-5 font-size-2 leading-[2.5] bg-[var(--theme-grey)] rounded-md shadow-lg w-[75%] sm-[50%] h-[100%] m-auto lg:w-[100%]">
+          <h2 class="text-4xl font-bold">Classes Include</h2>
+          <div
+            v-for="(FitnessClass, index) of justSomeClasses"
+            
+            :key="index"
+            class="flex flex-col items-center m-5"
+          >
+            <div class="text-3xl leading-[2.5rem]">{{ FitnessClass }}</div>
+            <svg class="w-[60%] fill-[var(--theme-divider)] mt-5" viewBox="0 0 576 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+              <g transform="matrix(1,0,0,1,-224.226,-368)">
                 <g transform="matrix(3.03763,0,0,3.03763,-875.717,-746.39)">
                     <circle cx="456.842" cy="372.129" r="5.267" />
                 </g>
-              <g transform="matrix(6.12323e-17,1,-1,6.12323e-17,1183.77,268.591)">
+                <g transform="matrix(6.12323e-17,1,-1,6.12323e-17,1183.77,268.591)">
                     <path d="M115.409,384L121.858,671.774L108.959,671.774L115.409,384Z" />
                 </g>
-              <g transform="matrix(-6.12323e-17,1,1,6.12323e-17,-159.774,268.591)">
+                <g transform="matrix(-6.12323e-17,1,1,6.12323e-17,-159.774,268.591)">
                     <path d="M115.409,384L121.858,671.774L108.959,671.774L115.409,384Z" />
                 </g>
-            </g>
-          </svg>
-        </div>
-        <div class="flex justify-center items-center text-center w-[250px] h-[250px] my-[50px] mx-auto relative rotate-[-10deg]">
-          <NuxtImg
-            src="images/icons/new-star.png"
-            width="250"
-            height="250"
-            alt=""
-            :placeholder="true"
-            loading="eager"
-            quality="80"
-            class="absolute top-[0] left-[0] z-[-1]"
-          />
-          <div class="grid justify-center items-center">
-            <span class="font-bold text-6xl">£{{ payAsYouGoPrice.cost }}</span>
-            <span class="text-2xl font-bold uppercase">per session</span>
-            <span class="italic leading-[1.5]">
-              <p><a href="/" class="underline">View the prices page</a></p>
-              <p>for more details</p>
-            </span>
+              </g>
+            </svg>
+          </div>
+          <div class="flex justify-center items-center text-center w-[175px] h-[175px] sm:w-[250px] sm:h-[250px] my-[50px] mx-auto relative rotate-[-10deg]">
+            <NuxtImg
+              src="images/icons/new-star.png"
+              width="250"
+              height="250"
+              alt=""
+              :placeholder="true"
+              loading="eager"
+              quality="80"
+              class="absolute top-[0] left-[0] z-[-1]"
+            />
+            <div class="grid justify-center items-center">
+              <span class="font-bold text-4xl sm:text-6xl">£{{ payAsYouGoPrice.cost }}</span>
+              <span class="font-bold uppercase text-xl sm:text-2xl">per session</span>
+              <span class="italic leading-[1.5]">
+                <!-- <p><a href="/" class="underline">View the prices page</a></p> -->
+                <p>Contact me</p>
+                <p>for more details</p>
+              </span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!--   testimonials   -->
-  <div>
-    <div class="text-center">
-      <h2 class="font-bold text-xl">Testimonials</h2>
-      <p>Dont take my word for it, see what others have to say...</p>
-    </div>
-    <div class="my-1 mx-auto flex justify-center items-center max-w-[1600px]">
-      <div
-        v-for="(testimonial, index) of testimonials"
-        :key="index"
-        class="w-[325px] m-[30px] p-[20px] relative rounded-md bg-[var(--theme-grey)] text-sm shadow-lg"
-      >
-        <UIcon
-          name="bx:bxs-quote-alt-left"
-          class="w-[50px] h-[50px] absolute left-[-15px] top-[-15px] rotate-180 bg-[var(--theme-dk-green)]"
-        />
-        <p
-          v-for="(paragraph, indx) of testimonial.quote"
-          :key="'quote_'+indx"
-          class="italic text-center"
+    <!--   testimonials   -->
+    <div>
+      <div class="text-center">
+        <h2 class="font-bold text-xl">Testimonials</h2>
+        <p>Dont take my word for it, see what others have to say...</p>
+      </div>
+      <div class="my-1 mx-auto justify-center items-center max-w-[1600px] flex flex-wrap lg:flex-nowrap">
+        <div
+          v-for="(testimonial, index) of testimonials"
+          :key="index"
+          class="w-[325px] m-[30px] p-[20px] relative rounded-md bg-[var(--theme-grey)] text-sm shadow-lg"
         >
-          {{paragraph}}
-        </p>
-        <span class="font-bold float-right"> - {{ testimonial.author }}</span>
+          <UIcon
+            name="bx:bxs-quote-alt-left"
+            class="w-[50px] h-[50px] absolute left-[-15px] top-[-15px] rotate-180 bg-[var(--theme-dk-green)]"
+          />
+          <p
+            v-for="(paragraph, indx) of testimonial.quote"
+            :key="'quote_'+indx"
+            class="italic text-center"
+          >
+            {{paragraph}}
+          </p>
+          <span class="font-bold float-right"> - {{ testimonial.author }}</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Gallery -->
-  <div class="w-[100%] py-[5px] my-[10px] text-center bg-[var(--theme-lt-green)]">
-    <div class="m-3">
-      <h2 class="font-bold text-xl">Gallery</h2>
-      <p>Take a look at some of the fun we have in our classes!</p>
-    </div>
-    <div class="w-[100%] max-w-[1000px] overflow-hidden my-[50px] mx-auto grid grid-cols-5 grid-rows-2 gap-y-0 gap-x-2.5">
-      <div
-        v-for="(image, index) of galleryImages"
-        :key="index"
-        class="w-[100%] h-[100%] flex items-center"
-      >
-        <NuxtImg
-          :src="image.src"
-          width="250"
-          height="250"
-          alt=""
-          :placeholder="true"
-          loading="lazy"
-          quality="80"
-          class="w-[100%] h-[95%] object-cover rounded-md"
-        />
+    <!-- Gallery -->
+    <div class="w-[100%] py-[5px] my-[10px] text-center bg-[var(--theme-lt-green)]">
+      <div class="m-3">
+        <h2 class="font-bold text-xl">Gallery</h2>
+        <p>Take a look at some of the fun we have in our classes!</p>
       </div>
-    </div>
-  </div>
-
-<!-- qualifications -->
-  <div class="w-[100%]">
-    <div class="grid grid-cols-2 w-[100%] max-w-[1500px] mt-[45px] mb-[100px] mx-auto">
-      <div class="flex justify-center flex-col px-[50px]">
-        <h2 class="font-bold text-xl">Qualifications</h2>
-        <p>I am a qualified Fitness Instructor, Nutritional Advisor, and Womens Health & Wellbeing Specialist with over a decade of experience. I hold the following qualifications:</p>
-        <ul class="my-[10px]">
-          <li>- Level 2 Exercise to music from Lifetime training.</li>
-          <li>- Fitness Pilates and Lift Lean with Choreography To Go</li>
-          <li>- Fitsteps dance fitness training with FitSteps Official</li>
-          <li>- Level 3 Nutrition for Exercise and health with Active IQ</li>
-          <li>- My qualifications are CIMSPA approved</li>
-        </ul>
-      </div>
-      <div class="w-[800px] flex justify-center my-[50px]">
-        <div class="flex w-[50%]">
+      <div class="w-full max-w-[1000px] overflow-hidden my-[50px] mx-auto grid gap-y-0 gap-x-2.5 grid-cols-2 sm:grid-cols-3 sm:grid-rows-3 lg:grid-cols-5 lg:grid-rows-2">
+        <div
+          v-for="(image, index) of galleryImages"
+          :key="index"
+          class="w-[100%] h-[100%] flex items-center"
+          :class="(index == galleryImages.length-1) ? 'block sm:hidden lg:block' : 'block'"
+        >
           <NuxtImg
-            src="/images/certificates/fitness-pilates-2025.png"
-            width="400"
-            height="300"
+            :src="image.src"
+            width="250"
+            height="250"
             alt=""
             :placeholder="true"
             loading="lazy"
             quality="80"
-            class="w-[400px] h-[300px] object-cover shadow-md left-[50px] rotate-[-12deg] relative"
-          />
-        </div>
-        <div class="flex w-[50%]">
-          <NuxtImg
-            src="/images/certificates/lift-lean-cert.jpeg"
-            width="400"
-            height="300"
-            alt=""
-            :placeholder="true"
-            loading="lazy"
-            quality="80"
-            class="w-[400px] h-[300px] object-cover shadow-md right-[50px] rotate-[12deg] relative"
+            class="w-[100%] h-[95%] object-cover rounded-md"
           />
         </div>
       </div>
     </div>
-  </div>
+
+  <!-- qualifications -->
+    <div class="w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-2 w-[100%] max-w-[1500px] mt-[45px] mb-[100px] mx-auto">
+        <div class="flex justify-center text-center lg:text-left flex-col px-[10px] lg:px-[50px]">
+          <h2 class="font-bold text-xl">Qualifications</h2>
+          <p>I am a qualified Fitness Instructor, Nutritional Advisor, and Womens Health & Wellbeing Specialist with over a decade of experience. I hold the following qualifications:</p>
+          <ul class="my-[10px] text-left ml-">
+            <li>- Level 2 Exercise to music from Lifetime training.</li>
+            <li>- Fitness Pilates and Lift Lean with Choreography To Go</li>
+            <li>- Fitsteps dance fitness training with FitSteps Official</li>
+            <li>- Level 3 Nutrition for Exercise and health with Active IQ</li>
+            <li>- My qualifications are CIMSPA approved</li>
+          </ul>
+        </div>
+        <div class="w-[100%] flex justify-center my-[50px] flex-col lg:flex-row">
+          <div class="flex w-[90%] lg:w-[50%] m-auto my-3">
+            <NuxtImg
+              src="/images/certificates/fitness-pilates-2025.png"
+              width="400"
+              height="300"
+              alt=""
+              :placeholder="true"
+              loading="lazy"
+              quality="80"
+              class="w-[400px] h-auto object-cover shadow-md lg:left-[50px] lg:rotate-[-12deg] relative m-auto"
+            />
+          </div>
+          <div class="flex w-[90%] lg:w-[50%] m-auto my-3">
+            <NuxtImg
+              src="/images/certificates/lift-lean-cert.jpeg"
+              width="400"
+              height="300"
+              alt=""
+              :placeholder="true"
+              loading="lazy"
+              quality="80"
+              class="w-[400px] h-auto object-cover shadow-md lg:right-[50px] lg:rotate-[12deg] relative m-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 </template>
