@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Log;
 use App\Models\FitnessClass;
 use App\Enums\Days;
 use Carbon\Carbon;
@@ -15,11 +17,15 @@ if(App::environment('local')) {
         // essential attributes to build a schedule
         $fitnessClassId = 1;
         $fitnessClassTime = '15:00';
+        $scheduledStartDate = '2026-05-27';
+
+        $timeDestruct = explode(':', $fitnessClassTime);
+        $hour = (int)$timeDestruct[0];
+        $mins = (int)$timeDestruct[1];
 
         // essentials to calculate the start date of the schedule
         $fitnessClass = FitnessClass::find($fitnessClassId);
         $classStartDate = $fitnessClass->start_date;
-        $scheduledStartDate = '2026-05-27';
         $now = Carbon::today();
 
         // check if class start date if before or after todays date.
@@ -34,6 +40,10 @@ if(App::environment('local')) {
         if($startDate < $scheduledStartDate) {
             $startDate = Carbon::create($scheduledStartDate);
         }
+        $startDate->hour = $hour;
+        $startDate->minute = $mins;
+
+
         $fullScheduleStart = $startDate->copy();
 
         $endDate = $startDate->addMonth(3);
@@ -47,7 +57,7 @@ if(App::environment('local')) {
         );
 
         for($date = $fullScheduleStart; $date < $endDate; $date->addWeek(1)) {
-            \Log::info('date ' . $date);
+            Log::info('date ' . $date);
             $schedule['schedule_dates'][] = $date->format('Y-m-d');
         }
 
