@@ -116,5 +116,19 @@ class FitnessClassSeeder extends Seeder
             'image_description' => '',
             'status' => 'active'
         ]);
+        
+        FitnessClass::create([
+            'category_id' => 1,
+            'name' => 'Seated Fitness',
+            'url_identifier' => 'seated-fitness',
+            'short_description' => 'Seated Fitness',
+            'description' => '&lt;p&gt;Seated fitness is a fun, welcoming way to stay active, improve mobility, and build strength — all at your own pace. Designed to be accessible for all abilities, these sessions use gentle, chair-based exercises to help you feel more confident, energised, and supported.&lt;/p&gt;&lt;p&gt;Each class offers a relaxed and sociable atmosphere, making it just as much about enjoying time together as it is about keeping fit. Whether you’re returning to exercise, looking for a low-impact option, or simply want to stay moving in a friendly environment, this class is ideal.&lt;/p&gt;',
+            'start_date' => '2025-06-17',
+            'notes' => 'Comfortable clothing is recommended and trainers or pumps would be ideal. Bring a drink to stay hydrated, and a cushion for added comfort and support during the session if required.',
+            'image' => '/images/uploads/543.jpg',
+            'image_description' => '',
+            'status' => 'active'
+        ]);
     }
 }
+

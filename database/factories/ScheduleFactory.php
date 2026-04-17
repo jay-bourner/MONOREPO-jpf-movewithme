@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\FitnessClass;
+use App\Models\Venue;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +18,15 @@ class ScheduleFactory extends Factory
      */
     public function definition(): array
     {
+        $venue = Venue::all()->random()->id;
+        $fitnessClass = FitnessClass::all()->random()->id;
+
         return [
-            //
+            'fitness_class_id' => $fitnessClass,
+            'venue_id' => $venue,
+            'category_id' => 1,
+            'date_and_time' => '',
+            'duration' => '',
         ];
     }
 }

@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
             PriceSeeder::class,
             VenueSeeder::class,
             FitnessClassSeeder::class,
-            ScheduleSeeder::class
+            // ScheduleSeeder::class
         ]);
     }
 }
