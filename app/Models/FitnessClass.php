@@ -33,7 +33,7 @@ class FitnessClass extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function fitnessClassOptions(): HasMany {
-        return $this->hasMany(FitnessClassOption::class);
-    }
+    // public function fitnessClassOptions(): HasMany {
+    //     return $this->hasMany(FitnessClassOption::class);
+    // }
 }

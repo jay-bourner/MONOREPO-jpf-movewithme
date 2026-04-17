@@ -13,7 +13,13 @@ class PriceController extends Controller
      */
     public function index()
     {
-        return Price::all();
+        $prices = Price::all();
+
+        return response()
+            ->json($prices)
+            ->withHeaders([
+                'content-type' => 'application/json'
+            ]);
     }
 
     /**

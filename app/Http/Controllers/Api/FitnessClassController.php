@@ -13,7 +13,17 @@ class FitnessClassController extends Controller
      */
     public function index()
     {
-        //
+        $fitnessClass = FitnessClass::all();
+
+        foreach($fitnessClass as $class) {
+            $class['description'] = html_entity_decode($class['description']);
+        }
+
+        return response()
+            ->json($fitnessClass)
+            ->withHeaders([
+                'content-type' => 'application/json'
+            ]);
     }
 
     /**

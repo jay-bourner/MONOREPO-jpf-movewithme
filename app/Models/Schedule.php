@@ -19,13 +19,8 @@ class Schedule extends Model
         'fitness_class_id',
         'venue_id',
         'category_id',
-        'start_time',
-        'date',
-        'day',
-        'age_groups',
-        'url',
-        'rescheduled',
-        'pricing',
+        'date_and_time',
+        'duration'
     ];
 
 
