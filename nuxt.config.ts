@@ -8,10 +8,23 @@ export default defineNuxtConfig({
     enabled: true
   },
   css: ['~/assets/css/main.css'],
+  runtimeConfig: {
+    public: {
+      API_BASE: process.env.NUXT_PUBLIC_API_BASE || 'http://localhost:8000'
+    }
+  },
   routeRules: {
     '/': { prerender: true }
   },
   compatibilityDate: '2025-01-15',
+  eslint: {
+    config: {
+      stylistic: {
+        commaDangle: 'never',
+        braceStyle: '1tbs'
+      }
+    }
+  },
   image: {
     inject: true,
     quality: 80,
@@ -30,19 +43,6 @@ export default defineNuxtConfig({
         format: 'avif,webp',
         quality: 80
       }
-    }
-  },
-  eslint: {
-    config: {
-      stylistic: {
-        commaDangle: 'never',
-        braceStyle: '1tbs'
-      }
-    }
-  },
-  runtimeConfig: {
-    public: {
-      API_BASE: process.env.NUXT_PUBLIC_API_BASE || 'http://localhost:8000',
     }
   }
 })

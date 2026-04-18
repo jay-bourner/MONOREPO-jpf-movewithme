@@ -3,7 +3,7 @@ const title = 'Get Active and Have Fun! Fitness Classes for Everyone around Fake
 
 useSeoMeta({
   title,
-  ogTitle: title,
+  ogTitle: title
   // ogImage: 'public/images/icons/jpfitnesslogoicon.png',
 })
 </script>

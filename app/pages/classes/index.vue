@@ -5,7 +5,9 @@ const { data: classes } = useFetch('/api/classes')
 <template>
   <div>
     <div class="my-[50px] mx-auto w-[95%] lg:w-[50%] p-[20px] text-center border border-[var(--theme-green)] rounded-md">
-      <h1 class="text-3xl font-bold text-center">Classes</h1>
+      <h1 class="text-3xl font-bold text-center">
+        Classes
+      </h1>
       <p>There are a range of classes available to you, Check them out below.</p>
     </div>
     <div class="flex flex-wrap gap-5 my-[50px] w-[95%] lg:w-[80%] m-auto">
@@ -23,7 +25,10 @@ const { data: classes } = useFetch('/api/classes')
             {{ fitnessClass.name }}
           </div>
           <UChip color="info">
-            <UButton label="In Person" color="neutral" />
+            <UButton
+              label="In Person"
+              color="neutral"
+            />
           </UChip>
         </template>
         <div class="flex flex-col lg:flex-row gap-5">
@@ -38,8 +43,10 @@ const { data: classes } = useFetch('/api/classes')
             class="w-[300px] h-auto rounded object-cover"
           />
           <div>
-            <h3 class="font-bold">{{ fitnessClass.short_description }}</h3>
-            <div v-html="fitnessClass.description"></div>
+            <h3 class="font-bold">
+              {{ fitnessClass.short_description }}
+            </h3>
+            <div v-html="fitnessClass.description" />
           </div>
         </div>
         <!-- <template #footer>

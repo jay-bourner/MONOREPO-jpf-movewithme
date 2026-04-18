@@ -14,11 +14,11 @@ useHead({
 const navigationLinks = ref([
   {
     label: 'Home',
-    to: '/',
+    to: '/'
   },
   {
     label: 'Classes',
-    to: '/classes',
+    to: '/classes'
   },
   // {
   //   label: 'Qualifications',
@@ -30,20 +30,20 @@ const navigationLinks = ref([
   // },
   {
     label: 'Contact',
-    to: '/contact',
-  },
-])
-
-const contactLinks = ref([
-  {
-    label: 'jaime@jpf-movewithme.co.uk',
-    to: 'mailto:jaime@jpf-movewithme.co.uk'
-  },
-  {
-    label: '07765 433100',
-    to: 'tel:07765433100'
+    to: '/contact'
   }
 ])
+
+// const contactLinks = ref([
+//   {
+//     label: 'jaime@jpf-movewithme.co.uk',
+//     to: 'mailto:jaime@jpf-movewithme.co.uk'
+//   },
+//   {
+//     label: '07765 433100',
+//     to: 'tel:07765433100'
+//   }
+// ])
 
 const bannerImages = ref([
   {
@@ -63,27 +63,30 @@ const bannerImages = ref([
 
 <template>
   <div>
-    <UHeader 
-      mode='slideover'
+    <UHeader
+      mode="slideover"
       :ui="{
         root: 'bg-[var(--theme-green)]',
         title: 'relative my-0 mx-[50px] font-bold',
         header: 'flex justify-between items-center w-full bg-[var(--theme-green)] font-size-sm',
-        container: 'w-full mx-0 max-w-[100%] px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 h-full',
+        container: 'w-full mx-0 max-w-[100%] px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 h-full'
       }"
     >
       <template #title>
         Move With Me!
       </template>
 
-
-        <UNavigationMenu 
-          :items="navigationLinks"
-          orientation="horizontal"
-        />
+      <UNavigationMenu
+        :items="navigationLinks"
+        orientation="horizontal"
+      />
 
       <template #body>
-        <UNavigationMenu :items="navigationLinks" orientation="vertical" class="-mx-2.5" />
+        <UNavigationMenu
+          :items="navigationLinks"
+          orientation="vertical"
+          class="-mx-2.5"
+        />
       </template>
     </UHeader>
     <div class="justify-between max-w-[1600px] m-auto flex-wrap lg:flex lg:flex-nowrap">
@@ -91,7 +94,7 @@ const bannerImages = ref([
         <img
           src="/images/logos/jpfitnesslogo2025.jpg"
           class="w-[350px] h-auto"
-        />
+        >
       </div>
       <div class="flex justify-center items-center max-w-[800px] relative m-auto lg:m-0">
         <div
@@ -113,9 +116,9 @@ const bannerImages = ref([
       </div>
     </div>
 
-    <slot></slot>
+    <slot />
 
-    <UFooter 
+    <UFooter
       class="w-full bg-[var(--theme-grey)]"
       :ui="{
         container: 'w-full max-w-[100%] flex flex-col-reverse lg:flex lg:flex-row lg:items-center lg:justify-center',
@@ -123,35 +126,41 @@ const bannerImages = ref([
         right: 'flex flex-col lg:justify-end lg:items-end'
       }"
     >
-    <template #left>
-      <h3>Contact me</h3>
-      <NuxtLink 
-        label="jaime@jpf-movewithme.co.uk"
-        to="mailto:jaime@jpf-movewithme.co.uk"
-      >
-        jaime@jpf-movewithme.co.uk
-      </NuxtLink>
-      <NuxtLink 
-        label="07765 433100"
-        to="mailto:07765 433100"
-      >
-        07765 433100
-      </NuxtLink>
-    </template>
+      <template #left>
+        <h3>Contact me</h3>
+        <NuxtLink
+          label="jaime@jpf-movewithme.co.uk"
+          to="mailto:jaime@jpf-movewithme.co.uk"
+        >
+          jaime@jpf-movewithme.co.uk
+        </NuxtLink>
+        <NuxtLink
+          label="07765 433100"
+          to="mailto:07765 433100"
+        >
+          07765 433100
+        </NuxtLink>
+      </template>
 
-    <div class="flex flex-col justify-center items-center">
-      <h3>Find me</h3>
-      <nav class="my-5 flex gap-3">
-        <UIcon name="i-lucide-facebook" class="size-7" />
-        <UIcon name="i-lucide-instagram" class="size-7" />
-      </nav>
-    </div>
+      <div class="flex flex-col justify-center items-center">
+        <h3>Find me</h3>
+        <nav class="my-5 flex gap-3">
+          <UIcon
+            name="i-lucide-facebook"
+            class="size-7"
+          />
+          <UIcon
+            name="i-lucide-instagram"
+            class="size-7"
+          />
+        </nav>
+      </div>
 
-    <template #right>
+      <template #right>
         <h3>Privacy Policy</h3>
         <div>Web site designed by Jason Bourner</div>
         <div>© Copyright all rights reserved JP Fitness 2026</div>
-    </template>
+      </template>
       <!-- <template #left>
         <div>
           <h3 class="font-bold">Find what you're looking for?</h3>
@@ -198,7 +207,7 @@ const bannerImages = ref([
         </div>
       </template> -->
       <!-- <div class="flex justify-between w-[80%] py-[20px] mx-auto text-sm"> -->
-        <!-- <div>
+      <!-- <div>
           <h3 class="font-bold">Find what you're looking for?</h3>
             <nav class="flex flex-col gap-2">
               <NuxtLink
@@ -209,7 +218,7 @@ const bannerImages = ref([
               </NuxtLink>
             </nav>
         </div> -->
-          <!-- <div>
+      <!-- <div>
             <h3 class="font-bold">Contact me</h3>
             <nav>
               <ul>
@@ -224,7 +233,7 @@ const bannerImages = ref([
               </ul>
             </nav>
           </div> -->
-          
+
       <!-- </div> -->
     </UFooter>
   </div>
