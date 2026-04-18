@@ -71,10 +71,10 @@ const justSomeClasses = ref([
 ])
 
 
-const { data: prices } = await useFetch('/api/prices')
+const {data: prices} = await useFetch('/api/prices')
 
 const payAsYouGoPrice = computed(() => {
-  return prices.value.filter((price) => price.type === 'payg')[0];
+  return prices.value.filter(price => price.type === 'payg')[0];
 })
 </script>
 
@@ -92,7 +92,7 @@ const payAsYouGoPrice = computed(() => {
         <template #header>
           {{ elem.heading }}
         </template>
-          {{ elem.text }}
+        {{ elem.text }}
       </UCard>
     </div>
 
@@ -106,9 +106,13 @@ const payAsYouGoPrice = computed(() => {
               height="500"
               class=""
             />
-            <svg class="absolute bottom-[-5px] left-0 w-[103%] fill-[var(--theme-dk-green)]" viewBox="0 0 3189 355" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+            <svg class="absolute bottom-[-5px] left-0 w-[103%] fill-[var(--theme-dk-green)]" viewBox="0 0 3189 355"
+                 version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 xml:space="preserve" xmlns:serif="http://www.serif.com/"
+                 style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
                 <g transform="matrix(2.03592,0.0366734,-0.0742454,4.12173,-460.181,-3104.7)">
-                    <path d="M267.03,829.976C422.362,815.476 749.537,769.178 997.731,780.288C1698.57,811.661 1817.06,710.168 1808.48,762.287C1808.44,762.552 1808.41,762.818 1808.41,763.084C1808.41,768.05 1808.41,817.158 1808.41,817.158L267.03,829.976Z" />
+                    <path
+                      d="M267.03,829.976C422.362,815.476 749.537,769.178 997.731,780.288C1698.57,811.661 1817.06,710.168 1808.48,762.287C1808.44,762.552 1808.41,762.818 1808.41,763.084C1808.41,768.05 1808.41,817.158 1808.41,817.158L267.03,829.976Z"/>
                 </g>
             </svg>
           </div>
@@ -116,35 +120,47 @@ const payAsYouGoPrice = computed(() => {
             <h2 class="font-bold ">Welcome to Putting Your Fitness & Wellness First</h2>
           </div>
           <div class="flex flex-col gap-2">
-            <p>Hi, I'm Jaime, and as a lady in her 40s, mum to two young children, a wife and a business owner, I'm no stranger to putting everyone else first and myself last. However, as I approach my half-century (scary now I write it!) I realise the importance of focusing on my health and wellbeing. I make my lifestyle, fitness and wellness choices based on increasing longevity. I want to be able to move freely and stay strong and physically independent into my later years. And I now make it my mission to help you do the same.</p>
-            <p><b>My credentials</b><br> My passion for fitness and exercise began in my 20s when I became an entertainer and dancer. For the last ten years, I have been passionate about helping my local community as a fitness instructor, nutritional advisor, and women's health and wellbeing specialist.</p>
-            <p><b>My offering</b><br> You'll find a diverse range of community fitness classes in West and North Norfolk. Online, there are fitness and nutrition programs tailored for both men and women. Browse the timetable to find your perfect class.</p>
+            <p>Hi, I'm Jaime, and as a lady in her 40s, mum to two young children, a wife and a business owner, I'm no
+              stranger to putting everyone else first and myself last. However, as I approach my half-century (scary now
+              I write it!) I realise the importance of focusing on my health and wellbeing. I make my lifestyle, fitness
+              and wellness choices based on increasing longevity. I want to be able to move freely and stay strong and
+              physically independent into my later years. And I now make it my mission to help you do the same.</p>
+            <p><b>My credentials</b><br> My passion for fitness and exercise began in my 20s when I became an
+              entertainer and dancer. For the last ten years, I have been passionate about helping my local community as
+              a fitness instructor, nutritional advisor, and women's health and wellbeing specialist.</p>
+            <p><b>My offering</b><br> You'll find a diverse range of community fitness classes in West and North
+              Norfolk. Online, there are fitness and nutrition programs tailored for both men and women. Browse the
+              timetable to find your perfect class.</p>
           </div>
         </div>
-        <div class="text-center py-5 font-size-2 leading-[2.5] bg-[var(--theme-grey)] rounded-md shadow-lg w-[75%] sm-[50%] h-[100%] m-auto lg:w-[100%]">
+        <div
+          class="text-center py-5 font-size-2 leading-[2.5] bg-[var(--theme-grey)] rounded-md shadow-lg w-[75%] sm-[50%] h-[100%] m-auto lg:w-[100%]">
           <h2 class="text-4xl font-bold">Classes Include</h2>
           <div
             v-for="(FitnessClass, index) of justSomeClasses"
-            
             :key="index"
             class="flex flex-col items-center m-5"
           >
             <div class="text-3xl leading-[2.5rem]">{{ FitnessClass }}</div>
-            <svg class="w-[60%] fill-[var(--theme-divider)] mt-5" viewBox="0 0 576 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+            <svg class="w-[60%] fill-[var(--theme-divider)] mt-5" viewBox="0 0 576 32" version="1.1"
+                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+                 xmlns:serif="http://www.serif.com/"
+                 style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
               <g transform="matrix(1,0,0,1,-224.226,-368)">
                 <g transform="matrix(3.03763,0,0,3.03763,-875.717,-746.39)">
-                    <circle cx="456.842" cy="372.129" r="5.267" />
+                    <circle cx="456.842" cy="372.129" r="5.267"/>
                 </g>
                 <g transform="matrix(6.12323e-17,1,-1,6.12323e-17,1183.77,268.591)">
-                    <path d="M115.409,384L121.858,671.774L108.959,671.774L115.409,384Z" />
+                    <path d="M115.409,384L121.858,671.774L108.959,671.774L115.409,384Z"/>
                 </g>
                 <g transform="matrix(-6.12323e-17,1,1,6.12323e-17,-159.774,268.591)">
-                    <path d="M115.409,384L121.858,671.774L108.959,671.774L115.409,384Z" />
+                    <path d="M115.409,384L121.858,671.774L108.959,671.774L115.409,384Z"/>
                 </g>
               </g>
             </svg>
           </div>
-          <div class="flex justify-center items-center text-center w-[175px] h-[175px] sm:w-[250px] sm:h-[250px] my-[50px] mx-auto relative rotate-[-10deg]">
+          <div
+            class="flex justify-center items-center text-center w-[175px] h-[175px] sm:w-[250px] sm:h-[250px] my-[50px] mx-auto relative rotate-[-10deg]">
             <NuxtImg
               src="images/icons/new-star.png"
               width="250"
@@ -168,8 +184,6 @@ const payAsYouGoPrice = computed(() => {
         </div>
       </div>
     </div>
-
-    <!--   testimonials   -->
     <div>
       <div class="text-center">
         <h2 class="font-bold text-xl">Testimonials</h2>
@@ -190,20 +204,20 @@ const payAsYouGoPrice = computed(() => {
             :key="'quote_'+indx"
             class="italic text-center"
           >
-            {{paragraph}}
+            {{ paragraph }}
           </p>
           <span class="font-bold float-right"> - {{ testimonial.author }}</span>
         </div>
       </div>
     </div>
 
-    <!-- Gallery -->
     <div class="w-[100%] py-[5px] my-[10px] text-center bg-[var(--theme-lt-green)]">
       <div class="m-3">
         <h2 class="font-bold text-xl">Gallery</h2>
         <p>Take a look at some of the fun we have in our classes!</p>
       </div>
-      <div class="w-full max-w-[1000px] overflow-hidden my-[50px] mx-auto grid gap-y-0 gap-x-2.5 grid-cols-2 sm:grid-cols-3 sm:grid-rows-3 lg:grid-cols-5 lg:grid-rows-2">
+      <div
+        class="w-full max-w-[1000px] overflow-hidden my-[50px] mx-auto grid gap-y-0 gap-x-2.5 grid-cols-2 sm:grid-cols-3 sm:grid-rows-3 lg:grid-cols-5 lg:grid-rows-2">
         <div
           v-for="(image, index) of galleryImages"
           :key="index"
@@ -224,12 +238,12 @@ const payAsYouGoPrice = computed(() => {
       </div>
     </div>
 
-  <!-- qualifications -->
     <div class="w-full">
       <div class="grid grid-cols-1 lg:grid-cols-2 w-[100%] max-w-[1500px] mt-[45px] mb-[100px] mx-auto">
         <div class="flex justify-center text-center lg:text-left flex-col px-[10px] lg:px-[50px]">
           <h2 class="font-bold text-xl">Qualifications</h2>
-          <p>I am a qualified Fitness Instructor, Nutritional Advisor, and Womens Health & Wellbeing Specialist with over a decade of experience. I hold the following qualifications:</p>
+          <p>I am a qualified Fitness Instructor, Nutritional Advisor, and Womens Health & Wellbeing Specialist with
+            over a decade of experience. I hold the following qualifications:</p>
           <ul class="my-[10px] text-left ml-">
             <li>- Level 2 Exercise to music from Lifetime training.</li>
             <li>- Fitness Pilates and Lift Lean with Choreography To Go</li>

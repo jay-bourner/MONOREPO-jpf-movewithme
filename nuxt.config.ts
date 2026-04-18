@@ -1,19 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxt/image'],
-
+  imports: {
+    autoImport: true
+  },
   devtools: {
     enabled: true
   },
-
   css: ['~/assets/css/main.css'],
-
   routeRules: {
     '/': { prerender: true }
   },
-
   compatibilityDate: '2025-01-15',
-
   image: {
     inject: true,
     quality: 80,
@@ -34,7 +32,6 @@ export default defineNuxtConfig({
       }
     }
   },
-
   eslint: {
     config: {
       stylistic: {
@@ -42,15 +39,10 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
-  }, 
-  
-  imports: {
-    autoImport: true
   },
-
   runtimeConfig: {
     public: {
       API_BASE: process.env.NUXT_PUBLIC_API_BASE || 'http://localhost:8000',
-    },
-  },
+    }
+  }
 })
