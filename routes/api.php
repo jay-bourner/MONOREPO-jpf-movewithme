@@ -14,4 +14,5 @@ Route::prefix('/v1')->group(function() {
     Route::get('/prices', [PriceController::class, 'index']);
     Route::get('/classes', [FitnessClassController::class, 'index']);
     Route::post('/contact', [ContactController::class, 'send']);
+
 });
